@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Harry Potter API</h1>
+            <p>Explore the wizarding world</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="category">Select Category:</label>
+                <select id="category">
+                    <option value="">-- Choose One --</option>
+                    <option value="books">Books</option>
+                    <option value="characters">Characters</option>
+                    <option value="houses">Houses</option>
+                    <option value="spells">Spells</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="language">Select Language:</label>
+                <select id="language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="uk">Українська</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search...">
+            </div>
+
+            <button id="fetchBtn" class="fetch-btn">Fetch Data</button>
+        </div>
+
+        <div id="loading" class="loading hidden">Loading...</div>
+        <div id="error" class="error hidden"></div>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

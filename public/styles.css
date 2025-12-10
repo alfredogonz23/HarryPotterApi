@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #b0b0b0;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-weight: 600;
+    color: #ffd700;
+    font-size: 0.95em;
+}
+
+.control-group select {
+    padding: 10px 15px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    background: #16213e;
+    color: #e0e0e0;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-group select:hover {
+    background: #1f2e4d;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.control-group select:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.control-group input {
+    padding: 10px 15px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    background: #16213e;
+    color: #e0e0e0;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.control-group input:hover,
+.control-group input:focus {
+    background: #1f2e4d;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.control-group input::placeholder {
+    color: #888;
+}
+
+.fetch-btn {
+    padding: 10px 30px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: none;
+    border-radius: 5px;
+    color: #1a1a2e;
+    font-weight: 700;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+.fetch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 215, 0, 0.4);
+}
+
+.fetch-btn:active {
+    transform: translateY(0);
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ffd700;
+    padding: 30px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.error {
+    background: rgba(255, 76, 76, 0.1);
+    border-left: 4px solid #ff4c4c;
+    color: #ff9999;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.error:not(.hidden) {
+    display: block;
+}
+
+.error.hidden {
+    display: none;
+}
+
+.results {
+    display: grid;
+    gap: 20px;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.1);
+}
+
+.result-title {
+    font-size: 1.4em;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.result-content {
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+.result-property {
+    margin: 8px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.result-property strong {
+    color: #ffd700;
+    min-width: 120px;
+}
+
+.result-property span {
+    flex: 1;
+    word-break: break-word;
+}
+
+.result-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.result-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fetch-btn {
+        align-self: stretch;
+    }
+
+    .result-card {
+        padding: 15px;
+    }
+
+    .result-title {
+        font-size: 1.1em;
+    }
+}
